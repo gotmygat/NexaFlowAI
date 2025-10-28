@@ -37,7 +37,7 @@ export default function ContactPage() {
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
             <p className="text-xl text-muted-foreground mb-12">
-              Have questions? We're here to help you succeed with NexaFlow AI
+              Have questions? We&apos;re here to help you succeed with NexaFlow AI
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
