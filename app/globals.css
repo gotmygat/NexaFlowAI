@@ -79,3 +79,42 @@
     box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
   }
 }
+
+.diagonal-lines {
+  background-image:
+    linear-gradient(135deg, rgba(59, 130, 246, 0.03) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(59, 130, 246, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(59, 130, 246, 0.03) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(59, 130, 246, 0.03) 25%, transparent 25%);
+  background-size: 80px 80px;
+  background-position: 0 0, 0 0, 40px 40px, 40px 40px;
+  animation: diagonal-move 20s linear infinite;
+}
+
+@keyframes diagonal-move {
+  0% {
+    background-position: 0 0, 0 0, 40px 40px, 40px 40px;
+  }
+  100% {
+    background-position: 80px 80px, 80px 80px, 120px 120px, 120px 120px;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    opacity: 0.8;
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(0, -100px) scale(0.9);
+  }
+  75% {
+    opacity: 0.7;
+    transform: translate(-50px, -50px) scale(1.05);
+  }
+}

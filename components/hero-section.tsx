@@ -4,15 +4,18 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Shield, Zap } from "lucide-react";
 import Link from "next/link";
+import TypewriterText from "@/components/typewriter-text";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 diagonal-lines opacity-50" />
 
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-glow [animation-delay:1s]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" style={{ animation: 'gradient-shift 15s ease-in-out infinite' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" style={{ animation: 'gradient-shift 15s ease-in-out infinite 5s' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" style={{ animation: 'gradient-shift 20s ease-in-out infinite 10s' }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -38,9 +41,16 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent"
+            className="text-5xl md:text-7xl font-bold mb-6"
           >
-            Unlock Limitless Profit Potential
+            <span className="text-foreground">Unlock </span>
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              <TypewriterText
+                words={["Limitless Profit", "Maximum Returns", "Infinite Gains", "Unlimited Revenue"]}
+                className="inline-block min-w-[280px] md:min-w-[500px]"
+              />
+            </span>
+            <span className="text-foreground"> Potential</span>
           </motion.h1>
 
           <motion.p
