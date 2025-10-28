@@ -75,7 +75,9 @@ export default function HeroSection() {
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/docs">View Documentation</Link>
+              <Link href="https://t.me/your_bot_username" target="_blank" rel="noopener noreferrer">
+                Telegram Bot
+              </Link>
             </Button>
           </motion.div>
 
