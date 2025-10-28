@@ -27,11 +27,6 @@ export function initTypedCycle() {
   const target = h1.querySelector<HTMLElement>("#typeword");
   if (!target) return;
 
-  // Set the min width once based on the longest word (optional helper)
-  const words = (target.getAttribute("data-words") || "").split("|").filter(Boolean);
-  const longest = words.reduce((m, w) => Math.max(m, w.length), 0) || 10;
-  target.style.setProperty("--type-minch", `${longest}ch`);
-
   startTypedCycleRaf(target, {
     typeMs: 54,        // slightly faster typing = smoother
     deleteMs: 42,      // slightly faster delete

@@ -223,7 +223,6 @@ body::after {
 /* Reserve width + prevent flicker */
 #typeword {
   display: inline-block;
-  min-width: var(--type-minch, 10ch);  /* set to longest word length */
   font-variant-ligatures: none;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
@@ -238,6 +237,7 @@ body::after {
   margin-left: .12em;
   animation: slashBlink .8s steps(1, end) infinite;
   will-change: opacity;
+  position: relative;
 }
 
 @keyframes slashBlink { 0%,49%{opacity:1} 50%,100%{opacity:.06} }
