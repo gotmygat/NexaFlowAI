@@ -27,12 +27,12 @@ export function initTypedCycle() {
   const target = h1.querySelector<HTMLElement>("#typeword");
   if (!target) return;
 
-  // Start the typed cycle with timings matching the spec
+  // Start the typed cycle with slower timings (30% of original speed)
   startTypedCycle(target, {
-    typeMs: 60,
-    deleteMs: 40,
-    pauseEnd: 900,
-    pauseBetween: 350,
+    typeMs: 200,
+    deleteMs: 133,
+    pauseEnd: 3000,
+    pauseBetween: 1166,
     colors: ["#00e5ff", "#ff4fd8", "#9b5cff", "#4f7dff"]
   });
 }

@@ -7,10 +7,10 @@ type Options = {
 };
 
 export function startTypedCycle(target: HTMLElement, opts: Options = {}) {
-  const typeMs = opts.typeMs ?? 60;
-  const deleteMs = opts.deleteMs ?? 40;
-  const pauseEnd = opts.pauseEnd ?? 900;
-  const pauseBetween = opts.pauseBetween ?? 350;
+  const typeMs = opts.typeMs ?? 200;
+  const deleteMs = opts.deleteMs ?? 133;
+  const pauseEnd = opts.pauseEnd ?? 3000;
+  const pauseBetween = opts.pauseBetween ?? 1166;
   const colors = opts.colors ?? ["#00e5ff", "#ff4fd8", "#9b5cff", "#4f7dff"];
 
   // Pull words from data attribute if present, else from sibling list, else fallback

@@ -1,4 +1,88 @@
-/* Aurora/Plasma Background Animation */
+/* iOS 26 Liquid Glass Effect - Full Page */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(0, 229, 255, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 79, 216, 0.15), transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(155, 92, 255, 0.15), transparent 50%),
+    radial-gradient(circle at 90% 70%, rgba(79, 125, 255, 0.12), transparent 50%),
+    linear-gradient(135deg,
+      rgba(0, 229, 255, 0.08) 0%,
+      rgba(79, 125, 255, 0.08) 20%,
+      rgba(155, 92, 255, 0.08) 40%,
+      rgba(255, 79, 216, 0.08) 60%,
+      rgba(79, 125, 255, 0.08) 80%,
+      rgba(0, 229, 255, 0.08) 100%
+    );
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 400% 400%;
+  filter: blur(60px) saturate(180%);
+  animation: liquidGlass 45s ease-in-out infinite;
+  will-change: background-position, filter;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 60% 40%, rgba(79, 125, 255, 0.1), transparent 40%),
+    radial-gradient(circle at 30% 70%, rgba(155, 92, 255, 0.1), transparent 40%),
+    radial-gradient(circle at 75% 85%, rgba(0, 229, 255, 0.08), transparent 40%);
+  background-size: 250% 250%;
+  filter: blur(80px) saturate(200%);
+  animation: liquidGlassSecondary 60s ease-in-out infinite reverse;
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+
+@keyframes liquidGlass {
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    filter: hue-rotate(0deg) blur(60px) saturate(180%);
+  }
+  25% {
+    background-position: 50% 30%, 60% 40%, 40% 50%, 30% 60%, 25% 25%;
+    filter: hue-rotate(90deg) blur(70px) saturate(200%);
+  }
+  50% {
+    background-position: 100% 50%, 80% 60%, 70% 80%, 60% 90%, 50% 50%;
+    filter: hue-rotate(180deg) blur(65px) saturate(190%);
+  }
+  75% {
+    background-position: 50% 70%, 40% 60%, 60% 50%, 70% 40%, 75% 75%;
+    filter: hue-rotate(270deg) blur(70px) saturate(200%);
+  }
+  100% {
+    background-position: 0% 100%, 0% 0%, 0% 0%, 0% 0%, 100% 100%;
+    filter: hue-rotate(360deg) blur(60px) saturate(180%);
+  }
+}
+
+@keyframes liquidGlassSecondary {
+  0%, 100% {
+    background-position: 0% 0%, 0% 0%, 0% 0%;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    background-position: 100% 50%, 50% 100%, 80% 20%;
+    transform: translate3d(2%, -1%, 0) scale(1.05);
+  }
+  66% {
+    background-position: 50% 100%, 100% 50%, 20% 80%;
+    transform: translate3d(-1%, 2%, 0) scale(0.98);
+  }
+}
+
+/* Aurora/Plasma Background Animation for Hero */
 .bg-aurora {
   position: relative;
   overflow: hidden;
@@ -12,10 +96,10 @@
   inset: -20%;
   z-index: -1;
   background:
-    radial-gradient(40% 60% at 20% 30%, #00e5ff33, transparent 60%),
-    radial-gradient(45% 65% at 80% 20%, #ff4fd833, transparent 60%),
-    radial-gradient(60% 50% at 50% 80%, #9b5cff33, transparent 60%),
-    conic-gradient(from 120deg at 50% 50%, #4f7dff22, #00e5ff22, #ff4fd822, #9b5cff22, #4f7dff22);
+    radial-gradient(40% 60% at 20% 30%, #00e5ff55, transparent 60%),
+    radial-gradient(45% 65% at 80% 20%, #ff4fd855, transparent 60%),
+    radial-gradient(60% 50% at 50% 80%, #9b5cff55, transparent 60%),
+    conic-gradient(from 120deg at 50% 50%, #4f7dff33, #00e5ff33, #ff4fd833, #9b5cff33, #4f7dff33);
   filter: blur(32px) saturate(160%);
   will-change: transform, filter, background-position;
 }
@@ -57,20 +141,31 @@
   text-shadow: 0 2px 16px rgba(0,0,0,.35);
 }
 
-/* Cursor styling */
+/* Cursor styling - bright and prominent */
 #slash-cursor {
   display: inline-block;
   margin-left: 0.12em;
+  font-weight: 400;
+  color: #00e5ff;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.5);
   animation: slashBlink .8s steps(1, end) infinite;
 }
 
 @keyframes slashBlink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0.06; }
+  0%, 49% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.5);
+  }
+  50%, 100% {
+    opacity: 0;
+    text-shadow: none;
+  }
 }
 
 /* Reduced motion fallback */
 @media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
   .bg-aurora::before,
   .bg-aurora::after {
     animation: none !important;
