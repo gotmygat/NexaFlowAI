@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TrendingUp, RefreshCw, ArrowRight } from "lucide-react";
+import { toast } from "sonner";
 
 interface Opportunity {
   id: string;
@@ -120,6 +121,12 @@ export default function ScannerSection() {
     }
   };
 
+  const handleExecute = (opp: Opportunity) => {
+    toast.success(`Executing ${opp.pair} arbitrage`, {
+      description: `Buy on ${opp.buyExchange}, Sell on ${opp.sellExchange} - Expected profit: +${opp.profit}%`,
+    });
+  };
+
   return (
     <section id="scanner" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
@@ -225,7 +232,7 @@ export default function ScannerSection() {
                         </div>
                         <div className="text-xs text-muted-foreground">{opp.timestamp}</div>
                       </div>
-                      <Button size="sm" variant="outline">
+                      <Button size="sm" variant="outline" onClick={() => handleExecute(opp)}>
                         Execute
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
