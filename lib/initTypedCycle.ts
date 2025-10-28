@@ -1,4 +1,4 @@
-import { startTypedCycle } from "./typedCycle";
+import { startTypedCycleRaf } from "./typedCycleRaf";
 
 export function initTypedCycle() {
   const hero = document.querySelector<HTMLElement>("[class*='hero'], header, main, section") || document.body;
@@ -27,12 +27,16 @@ export function initTypedCycle() {
   const target = h1.querySelector<HTMLElement>("#typeword");
   if (!target) return;
 
-  // Start the typed cycle with smooth, natural timing
-  startTypedCycle(target, {
-    typeMs: 150,
-    deleteMs: 100,
-    pauseEnd: 2500,
-    pauseBetween: 800,
-    colors: ["#00e5ff", "#ff4fd8", "#9b5cff", "#4f7dff"]
+  // Set the min width once based on the longest word (optional helper)
+  const words = (target.getAttribute("data-words") || "").split("|").filter(Boolean);
+  const longest = words.reduce((m, w) => Math.max(m, w.length), 0) || 10;
+  target.style.setProperty("--type-minch", `${longest}ch`);
+
+  startTypedCycleRaf(target, {
+    typeMs: 54,        // slightly faster typing = smoother
+    deleteMs: 42,      // slightly faster delete
+    pauseEnd: 880,
+    pauseBetween: 320,
+    colors: ["#00e5ff","#ff4fd8","#9b5cff","#4f7dff"]
   });
 }
