@@ -1,0 +1,82 @@
+/* Aurora/Plasma Background Animation */
+.bg-aurora {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.bg-aurora::before,
+.bg-aurora::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background:
+    radial-gradient(40% 60% at 20% 30%, #00e5ff33, transparent 60%),
+    radial-gradient(45% 65% at 80% 20%, #ff4fd833, transparent 60%),
+    radial-gradient(60% 50% at 50% 80%, #9b5cff33, transparent 60%),
+    conic-gradient(from 120deg at 50% 50%, #4f7dff22, #00e5ff22, #ff4fd822, #9b5cff22, #4f7dff22);
+  filter: blur(32px) saturate(160%);
+  will-change: transform, filter, background-position;
+}
+
+.bg-aurora::before {
+  animation: shift 28s linear infinite;
+}
+
+.bg-aurora::after {
+  animation: drift 42s ease-in-out infinite alternate;
+  transform: scale(1.2);
+  mix-blend-mode: screen;
+}
+
+@keyframes shift {
+  0%   {
+    background-position: 0% 0%;
+    filter: hue-rotate(0deg) blur(32px) saturate(160%);
+  }
+  50%  {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg) blur(32px) saturate(160%);
+  }
+  100% {
+    background-position: 0% 100%;
+    filter: hue-rotate(360deg) blur(32px) saturate(160%);
+  }
+}
+
+@keyframes drift {
+  0%   { transform: translate3d(-2%, -2%, 0) scale(1.2); }
+  100% { transform: translate3d(2%, 2%, 0) scale(1.28); }
+}
+
+/* Optional readability lift without altering brand colors */
+.bg-aurora h1,
+.bg-aurora .headline,
+.bg-aurora .eyebrow {
+  text-shadow: 0 2px 16px rgba(0,0,0,.35);
+}
+
+/* Cursor styling */
+#slash-cursor {
+  display: inline-block;
+  margin-left: 0.12em;
+  animation: slashBlink .8s steps(1, end) infinite;
+}
+
+@keyframes slashBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.06; }
+}
+
+/* Reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  .bg-aurora::before,
+  .bg-aurora::after {
+    animation: none !important;
+  }
+  #slash-cursor {
+    animation: none !important;
+    opacity: 1;
+  }
+}

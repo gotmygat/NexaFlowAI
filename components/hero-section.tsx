@@ -5,10 +5,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Shield, Zap } from "lucide-react";
 import Link from "next/link";
 import TypewriterText from "@/components/typewriter-text";
+import { useEffect } from "react";
+import { initTypedCycle } from "@/lib/initTypedCycle";
 
 export default function HeroSection() {
+  useEffect(() => {
+    initTypedCycle();
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 bg-aurora">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
       <div className="absolute inset-0 diagonal-lines opacity-50" />
 
