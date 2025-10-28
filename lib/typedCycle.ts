@@ -7,10 +7,10 @@ type Options = {
 };
 
 export function startTypedCycle(target: HTMLElement, opts: Options = {}) {
-  const typeMs = opts.typeMs ?? 200;
-  const deleteMs = opts.deleteMs ?? 133;
-  const pauseEnd = opts.pauseEnd ?? 3000;
-  const pauseBetween = opts.pauseBetween ?? 1166;
+  const baseTypeMs = opts.typeMs ?? 150;
+  const baseDeleteMs = opts.deleteMs ?? 100;
+  const pauseEnd = opts.pauseEnd ?? 2500;
+  const pauseBetween = opts.pauseBetween ?? 800;
   const colors = opts.colors ?? ["#00e5ff", "#ff4fd8", "#9b5cff", "#4f7dff"];
 
   // Pull words from data attribute if present, else from sibling list, else fallback
@@ -31,6 +31,20 @@ export function startTypedCycle(target: HTMLElement, opts: Options = {}) {
     return () => {};
   }
 
+  // Variable speed typing with slight randomness for natural feel
+  function getTypingDelay(length: number, index: number): number {
+    const progress = index / length;
+    // Ease-in-out effect: faster in middle, slower at start/end
+    const easing = 1 - Math.abs((progress - 0.5) * 2);
+    const variance = Math.random() * 30 - 15; // ±15ms variance
+    return baseTypeMs + (easing * 20) + variance;
+  }
+
+  function getDeletingDelay(length: number, index: number): number {
+    const variance = Math.random() * 20 - 10; // ±10ms variance
+    return baseDeleteMs + variance;
+  }
+
   function tick() {
     const word = words[i % words.length];
 
@@ -38,7 +52,8 @@ export function startTypedCycle(target: HTMLElement, opts: Options = {}) {
       if (sub.length < word.length) {
         sub = word.slice(0, sub.length + 1);
         target.textContent = sub;
-        raf = window.setTimeout(tick, typeMs) as unknown as number;
+        const delay = getTypingDelay(word.length, sub.length);
+        raf = window.setTimeout(tick, delay) as unknown as number;
       } else {
         raf = window.setTimeout(() => { phase = "pausing"; tick(); }, pauseEnd) as unknown as number;
       }
@@ -49,7 +64,8 @@ export function startTypedCycle(target: HTMLElement, opts: Options = {}) {
       if (sub.length > 0) {
         sub = word.slice(0, sub.length - 1);
         target.textContent = sub;
-        raf = window.setTimeout(tick, deleteMs) as unknown as number;
+        const delay = getDeletingDelay(word.length, sub.length);
+        raf = window.setTimeout(tick, delay) as unknown as number;
       } else {
         i = (i + 1) % words.length;
         setColor(target, colors[i % colors.length]);

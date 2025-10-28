@@ -37,7 +37,7 @@ const roadmapData: RoadmapItem[] = [
     description: "Initial release of NexaFlow AI with core arbitrage features",
     icon: Rocket,
     status: "completed",
-    quarter: "Q4 2024",
+    quarter: "Q1 2025",
     features: [
       "Real-time price monitoring across 50+ exchanges",
       "AI-powered opportunity detection",
@@ -51,7 +51,7 @@ const roadmapData: RoadmapItem[] = [
     description: "Enhanced automation and trading capabilities",
     icon: Zap,
     status: "completed",
-    quarter: "Q1 2025",
+    quarter: "Q2 2025",
     features: [
       "Automated trade execution",
       "Triangular arbitrage support",
@@ -64,8 +64,8 @@ const roadmapData: RoadmapItem[] = [
     title: "Security & Compliance",
     description: "Enterprise-grade security and regulatory compliance",
     icon: Shield,
-    status: "in-progress",
-    quarter: "Q2 2025",
+    status: "completed",
+    quarter: "Q3 2025",
     features: [
       "Two-factor authentication (2FA)",
       "Hardware wallet integration",
@@ -79,7 +79,7 @@ const roadmapData: RoadmapItem[] = [
     description: "Next-generation machine learning capabilities",
     icon: Sparkles,
     status: "in-progress",
-    quarter: "Q2 2025",
+    quarter: "Q4 2025",
     features: [
       "Deep learning price prediction",
       "Sentiment analysis integration",
@@ -92,8 +92,8 @@ const roadmapData: RoadmapItem[] = [
     title: "Mobile Applications",
     description: "Native iOS and Android apps for trading on the go",
     icon: Smartphone,
-    status: "planned",
-    quarter: "Q3 2025",
+    status: "in-progress",
+    quarter: "Q4 2025",
     features: [
       "Full-featured mobile apps",
       "Push notifications for opportunities",
@@ -107,7 +107,7 @@ const roadmapData: RoadmapItem[] = [
     description: "Community features and copy trading capabilities",
     icon: Users,
     status: "planned",
-    quarter: "Q3 2025",
+    quarter: "Q1 2026",
     features: [
       "Follow successful traders",
       "Copy trading functionality",
@@ -121,7 +121,7 @@ const roadmapData: RoadmapItem[] = [
     description: "Professional-grade analytics and reporting tools",
     icon: LineChart,
     status: "planned",
-    quarter: "Q4 2025",
+    quarter: "Q1 2026",
     features: [
       "Custom performance dashboards",
       "Backtesting with historical data",
@@ -135,7 +135,7 @@ const roadmapData: RoadmapItem[] = [
     description: "Ecosystem of third-party trading bots and strategies",
     icon: Bot,
     status: "planned",
-    quarter: "Q4 2025",
+    quarter: "Q1 2026",
     features: [
       "Bot creation framework",
       "Community bot marketplace",
@@ -149,7 +149,7 @@ const roadmapData: RoadmapItem[] = [
     description: "Multi-currency support and regional exchanges",
     icon: Globe,
     status: "planned",
-    quarter: "Q1 2026",
+    quarter: "Q2 2026",
     features: [
       "Support for 100+ exchanges",
       "Multi-language interface",
