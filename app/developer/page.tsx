@@ -64,7 +64,7 @@ export default function DeveloperPage() {
                 </p>
                 <Button variant="outline" asChild>
                   <a
-                    href="https://github.com/nexaflow-ai"
+                    href="https://github.com/gotmygat/NexaFlowAI"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
