@@ -49,11 +49,10 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
             id="hero-headline"
-            data-words="Limitless Profit|Maximum Returns|Infinite Gains|Unlimited Revenue"
           >
             <span className="text-foreground">Unlock </span>
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              <span id="typeword"></span><span id="slash-cursor">/</span>
+              <span id="typeword" data-words="Limitless Profit|Maximum Returns|Infinite Gains|Unlimited Revenue"></span><span id="slash-cursor">/</span>
             </span>
             <span className="text-foreground"> Potential</span>
           </motion.h1>
