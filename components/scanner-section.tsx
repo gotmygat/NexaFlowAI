@@ -25,7 +25,7 @@ const mockOpportunities: Opportunity[] = [
     sellExchange: "Coinbase",
     profit: 2.4,
     risk: "Low",
-    timestamp: new Date().toLocaleTimeString(),
+    timestamp: "Just now",
   },
   {
     id: "2",
@@ -34,7 +34,7 @@ const mockOpportunities: Opportunity[] = [
     sellExchange: "Binance",
     profit: 3.2,
     risk: "Medium",
-    timestamp: new Date().toLocaleTimeString(),
+    timestamp: "Just now",
   },
   {
     id: "3",
@@ -43,7 +43,7 @@ const mockOpportunities: Opportunity[] = [
     sellExchange: "Kraken",
     profit: 4.1,
     risk: "High",
-    timestamp: new Date().toLocaleTimeString(),
+    timestamp: "Just now",
   },
   {
     id: "4",
@@ -52,7 +52,7 @@ const mockOpportunities: Opportunity[] = [
     sellExchange: "Kraken",
     profit: 2.8,
     risk: "Low",
-    timestamp: new Date().toLocaleTimeString(),
+    timestamp: "Just now",
   },
   {
     id: "5",
@@ -61,18 +61,23 @@ const mockOpportunities: Opportunity[] = [
     sellExchange: "Coinbase",
     profit: 3.5,
     risk: "Medium",
-    timestamp: new Date().toLocaleTimeString(),
+    timestamp: "Just now",
   },
 ];
 
 export default function ScannerSection() {
   const [opportunities, setOpportunities] = useState<Opportunity[]>(mockOpportunities);
   const [isScanning, setIsScanning] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [stats, setStats] = useState({
     total: 847,
     activeBots: 2547,
     minProfit: 2.0,
   });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleScan = () => {
     setIsScanning(true);
