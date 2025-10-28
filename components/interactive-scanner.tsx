@@ -123,7 +123,7 @@ export default function InteractiveScanner() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-background">
+    <section className="py-24 relative overflow-hidden bg-scanner-glass">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">

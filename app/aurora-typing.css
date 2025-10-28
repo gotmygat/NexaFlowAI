@@ -172,24 +172,51 @@ body::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   background:
-    radial-gradient(circle at 30% 20%, rgba(79, 125, 255, 0.12), transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(155, 92, 255, 0.1), transparent 50%),
-    radial-gradient(circle at 50% 90%, rgba(0, 229, 255, 0.08), transparent 50%);
+    radial-gradient(circle at 30% 20%, rgba(79, 125, 255, 0.18), transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(155, 92, 255, 0.15), transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(0, 229, 255, 0.12), transparent 50%),
+    radial-gradient(circle at 90% 30%, rgba(255, 79, 216, 0.1), transparent 50%);
   background-size: 200% 200%;
-  filter: blur(50px) saturate(180%);
-  animation: scannerGlass 35s ease-in-out infinite;
+  filter: blur(60px) saturate(200%);
+  animation: scannerGlass 40s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bg-scanner-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 80% 80%, rgba(79, 125, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 20% 50%, rgba(0, 229, 255, 0.06), transparent 40%);
+  background-size: 150% 150%;
+  filter: blur(40px) saturate(180%);
+  animation: scannerGlassSecondary 50s ease-in-out infinite reverse;
+  pointer-events: none;
 }
 
 @keyframes scannerGlass {
   0%, 100% {
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-    filter: hue-rotate(0deg) blur(50px) saturate(180%);
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%;
+    filter: hue-rotate(0deg) blur(60px) saturate(200%);
   }
   50% {
-    background-position: 100% 100%, 0% 0%, 80% 20%;
-    filter: hue-rotate(120deg) blur(50px) saturate(200%);
+    background-position: 100% 100%, 0% 0%, 80% 20%, 100% 0%;
+    filter: hue-rotate(120deg) blur(65px) saturate(220%);
+  }
+}
+
+@keyframes scannerGlassSecondary {
+  0%, 100% {
+    background-position: 0% 0%, 0% 0%;
+    transform: scale(1);
+  }
+  50% {
+    background-position: 100% 100%, 100% 100%;
+    transform: scale(1.1);
   }
 }
 
