@@ -22,6 +22,7 @@ export default function Navigation() {
     { href: "#features", label: "Features" },
     { href: "#scanner", label: "Scanner" },
     { href: "#faq", label: "FAQ" },
+    { href: "/roadmap", label: "Roadmap" },
     { href: "/docs", label: "Documentation" },
     { href: "/contact", label: "Contact" },
   ];
